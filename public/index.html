@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SENTIMENT M - AI 감성 분석 서비스</title>
+  <!-- Google Fonts: Inter & Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 1. Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo">SENTIMENT M</a>
+      <nav class="nav-links">
+        <a href="#">서비스 소개</a>
+        <a href="#">사용 방법</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. Hero Section -->
+    <section class="hero container">
+      <h1>AI 감성 분석 서비스</h1>
+      <p>텍스트를 입력하면 AI가 문장의 감성을 긍정, 부정, 중립으로 분석합니다.</p>
+      
+      <!-- 3. Input Card -->
+      <div class="input-card">
+        <div id="errorMessage" class="error-message"></div>
+        <textarea id="sentimentText" placeholder="분석하고 싶은 문장을 입력하세요. 예: 오늘 서비스가 정말 만족스러웠어요."></textarea>
+        <div style="text-align: right;">
+          <button id="analyzeButton" class="button-primary">감성분석</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Info Cards Section -->
+    <section class="container info-section">
+      <div class="card">
+        <h3>긍정 분석</h3>
+        <p>만족, 기대, 칭찬, 호의적인 표현을 감지하여 텍스트에 담긴 긍정적 에너지를 분석합니다.</p>
+      </div>
+      <div class="card">
+        <h3>부정 분석</h3>
+        <p>불만, 실망, 분노, 비판적인 표현을 감지하여 개선이 필요한 부분을 식별하는 데 도움을 줍니다.</p>
+      </div>
+      <div class="card">
+        <h3>중립 분석</h3>
+        <p>감정 표현이 약하거나 단순한 정보 전달 중심의 문장을 객관적으로 분류합니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 5. Result Modal -->
+  <div id="resultModalBackdrop" class="modal-backdrop">
+    <div class="modal">
+      <div class="modal-header">
+        <div id="sentimentBadge" class="sentiment-badge">POSITIVE</div>
+        <h2 id="resultTitle">분석 결과</h2>
+      </div>
+      
+      <div class="confidence-container">
+        <div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 600;">
+          <span>AI 신뢰도</span>
+          <span id="resultConfidence">92%</span>
+        </div>
+        <div class="confidence-bar-bg">
+          <div id="confidenceBarFill" class="confidence-bar-fill"></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="reason-container">
+        <p id="resultReason" class="reason-text">
+          <!-- 분석 이유가 여기에 들어갑니다 -->
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button id="modalConfirmButton" class="button-primary" style="padding: 10px 24px; font-size: 14px;">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Footer -->
+  <footer class="footer container">
+    <p>&copy; 2024 SENTIMENT M. All rights reserved.</p>
+    <p style="margin-top: 8px;">Powered by OpenAI & Supabase</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
